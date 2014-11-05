@@ -10,7 +10,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 
 RUN apt-get install -y git wget gcc g++ unzip make
-#RUN apt-get install -y r-base
+RUN apt-get install -y r-base
 #RUN apt-get install -y clustalw fasttree t-coffee
 #RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 #RUN apt-get install -y samtools phyml wise raxml language-pack-en
@@ -32,7 +32,6 @@ RUN apt-get clean
 #RUN echo "export LANG=en_US.UTF-8" >> entrypoint.sh
 
 #Manual software
-
 
 ##reportlab fonts
 #RUN wget http://www.reportlab.com/ftp/fonts/pfbfer.zip
@@ -70,10 +69,7 @@ RUN root/miniconda3/bin/conda install --yes conda-build
 
 EXPOSE 9875
 
-#WORKDIR /usr/src/notebook
+RUN git clone XXXX
+WORKDIR /bioinf-python/notebooks
 
 CMD /root/miniconda3/bin/ipython notebook --ip=0.0.0.0 --no-browser --port=9875
-#RUN echo "echo hello" > entrypoint.sh
-#RUN echo "echo hello" >> entrypoint.sh
-#ENTRYPOINT bash entrypoint.sh
-
