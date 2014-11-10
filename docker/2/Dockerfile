@@ -33,6 +33,9 @@ RUN apt-get install -y git wget build-essential unzip
 #R
 RUN apt-get install -y r-bioc-biobase r-cran-ggplot2
 
+RUN apt-get install -y graphviz libgraphviz-dev pkg-config  # phylo/biopython
+RUN apt-get install -y swig  # simupop
+
 RUN apt-get clean
 
 #Manual software
@@ -75,13 +78,15 @@ RUN root/miniconda/bin/conda install --yes scikit-learn
 RUN root/miniconda/bin/conda install --yes statsmodels
 RUN root/miniconda/bin/conda install --yes pysam
 RUN root/miniconda/bin/conda install --yes conda-build
+RUN root/miniconda/bin/conda install --yes pip
 
-RUN root/minconda/bin/pip install rpy2
-RUN root/minconda/bin/pip install pygraphviz
-RUN root/minconda/bin/pip install seaborn
-RUN root/minconda/bin/pip install pyvcf
-RUN root/minconda/bin/pip install dendropy
-#RUN root/minconda/bin/pip install
+RUN /root/miniconda/bin/pip install rpy2
+RUN root/miniconda/bin/pip install pygraphviz
+RUN root/miniconda/bin/pip install seaborn
+RUN root/miniconda/bin/pip install pyvcf
+RUN root/miniconda/bin/pip install dendropy
+RUN root/miniconda/bin/pip install simupop
+#RUN root/miniconda/bin/pip install
 
 EXPOSE 9875
 
