@@ -2,6 +2,7 @@ FROM ubuntu:utopic
 MAINTAINER Tiago Antao <tiagoantao@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV PVER ""
 
 ##We need this for phylip
 #RUN echo 'deb http://archive.ubuntu.com/ubuntu utopic multiverse' >> /etc/apt/sources.list
@@ -9,8 +10,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get upgrade -y
 
-RUN apt-get install -y git wget gcc g++ unzip make
-RUN apt-get install -y r-base
+RUN apt-get install -y git wget build-essential unzip
+#RUN apt-get install -y gcc g++ make
 #RUN apt-get install -y clustalw fasttree t-coffee
 #RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 #RUN apt-get install -y samtools phyml wise raxml language-pack-en
@@ -22,7 +23,6 @@ RUN apt-get install -y r-base
 #for Phylo_CDAO
 #RUN pip3 install rdflib
 
-RUN apt-get clean
 
 ##Database servers
 #RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.3/main/pg_hba.conf
@@ -30,6 +30,11 @@ RUN apt-get clean
 #RUN echo "export LANG=en_US.UTF-8" >> .bashrc
 #RUN echo "service postgresql start" > entrypoint.sh
 #RUN echo "export LANG=en_US.UTF-8" >> entrypoint.sh
+
+#R
+RUN apt-get install -y r-bioc-base r-cran-ggplot2
+
+RUN apt-get clean
 
 #Manual software
 
@@ -59,17 +64,25 @@ RUN rm -rf genepop
 #RUN cp fsc_linux64/fsc251 /usr/bin
 #RUN rm -rf fsc_*
 
-RUN wget http://repo.continuum.io/miniconda/Miniconda-3.7.0-Linux-x86_64.sh
+RUN wget http://repo.continuum.io/miniconda/Miniconda${PVER}-3.7.0-Linux-x86_64.sh
 #Presumes aceptance of the license
-RUN bash Miniconda3-3.7.0-Linux-x86_64.sh -b
-RUN root/miniconda3/bin/conda install --yes biopython=1.64
-RUN root/miniconda3/bin/conda install --yes scipy matplotlib ipython-notebook binstar
-RUN root/miniconda3/bin/conda install --yes scikit-learn
-RUN root/miniconda3/bin/conda install --yes conda-build
+RUN bash Miniconda${PVER}-3.7.0-Linux-x86_64.sh -b
+RUN root/miniconda${PVER}/bin/conda install --yes biopython=1.64
+RUN root/miniconda${PVER}/bin/conda install --yes scipy matplotlib ipython-notebook binstar
+RUN root/miniconda${PVER}/bin/conda install --yes scikit-learn statsmodels
+RUN root/miniconda${PVER}/bin/conda install --yes pysam
+RUN root/miniconda${PVER}/bin/conda install --yes conda-build
+
+RUN root/minconda${PVER}/bin/pip install rpy2
+RUN root/minconda${PVER}/bin/pip install pygraphviz
+RUN root/minconda${PVER}/bin/pip install seaborn
+RUN root/minconda${PVER}/bin/pip install pyvcf
+RUN root/minconda${PVER}/bin/pip install dendropy
+#RUN root/minconda${PVER}/bin/pip install
 
 EXPOSE 9875
 
 RUN git clone https://github.com/tiagoantao/bioinf-python.git
 WORKDIR /bioinf-python/notebooks
 
-CMD /root/miniconda/bin/ipython notebook --ip=0.0.0.0 --no-browser --port=9875
+CMD /root/miniconda${PVER}/bin/ipython notebook --ip=0.0.0.0 --no-browser --port=9875
