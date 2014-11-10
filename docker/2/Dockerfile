@@ -2,7 +2,6 @@ FROM ubuntu:utopic
 MAINTAINER Tiago Antao <tiagoantao@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PVER ""
 
 ##We need this for phylip
 #RUN echo 'deb http://archive.ubuntu.com/ubuntu utopic multiverse' >> /etc/apt/sources.list
@@ -32,7 +31,7 @@ RUN apt-get install -y git wget build-essential unzip
 #RUN echo "export LANG=en_US.UTF-8" >> entrypoint.sh
 
 #R
-RUN apt-get install -y r-bioc-base r-cran-ggplot2
+RUN apt-get install -y r-bioc-biobase r-cran-ggplot2
 
 RUN apt-get clean
 
@@ -64,25 +63,29 @@ RUN rm -rf genepop
 #RUN cp fsc_linux64/fsc251 /usr/bin
 #RUN rm -rf fsc_*
 
-RUN wget http://repo.continuum.io/miniconda/Miniconda${PVER}-3.7.0-Linux-x86_64.sh
+RUN wget http://repo.continuum.io/miniconda/Miniconda-3.7.0-Linux-x86_64.sh
 #Presumes aceptance of the license
-RUN bash Miniconda${PVER}-3.7.0-Linux-x86_64.sh -b
-RUN root/miniconda${PVER}/bin/conda install --yes biopython=1.64
-RUN root/miniconda${PVER}/bin/conda install --yes scipy matplotlib ipython-notebook binstar
-RUN root/miniconda${PVER}/bin/conda install --yes scikit-learn statsmodels
-RUN root/miniconda${PVER}/bin/conda install --yes pysam
-RUN root/miniconda${PVER}/bin/conda install --yes conda-build
+RUN bash Miniconda-3.7.0-Linux-x86_64.sh -b
+RUN root/miniconda/bin/conda install --yes biopython=1.64
+RUN root/miniconda/bin/conda install --yes scipy 
+RUN root/miniconda/bin/conda install --yes matplotlib
+RUN root/miniconda/bin/conda install --yes ipython-notebook
+RUN root/miniconda/bin/conda install --yes binstar
+RUN root/miniconda/bin/conda install --yes scikit-learn
+RUN root/miniconda/bin/conda install --yes statsmodels
+RUN root/miniconda/bin/conda install --yes pysam
+RUN root/miniconda/bin/conda install --yes conda-build
 
-RUN root/minconda${PVER}/bin/pip install rpy2
-RUN root/minconda${PVER}/bin/pip install pygraphviz
-RUN root/minconda${PVER}/bin/pip install seaborn
-RUN root/minconda${PVER}/bin/pip install pyvcf
-RUN root/minconda${PVER}/bin/pip install dendropy
-#RUN root/minconda${PVER}/bin/pip install
+RUN root/minconda/bin/pip install rpy2
+RUN root/minconda/bin/pip install pygraphviz
+RUN root/minconda/bin/pip install seaborn
+RUN root/minconda/bin/pip install pyvcf
+RUN root/minconda/bin/pip install dendropy
+#RUN root/minconda/bin/pip install
 
 EXPOSE 9875
 
 RUN git clone https://github.com/tiagoantao/bioinf-python.git
 WORKDIR /bioinf-python/notebooks
 
-CMD /root/miniconda${PVER}/bin/ipython notebook --ip=0.0.0.0 --no-browser --port=9875
+CMD /root/miniconda/bin/ipython notebook --ip=0.0.0.0 --no-browser --port=9875
