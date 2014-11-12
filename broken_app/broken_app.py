@@ -13,13 +13,17 @@ n1 = float(f.readline().rstrip())
 n2 = float(f.readline().rstrip())
 f.close()
 
+try:
+    input = raw_input
+except NameError:
+    pass
+
 print('Please input your extra operation')
 print('1: Subtraction')
 print('2: Addition')
+op = input('?')
 
-op = bla
-
-print('The result of the multiplication is: %f' % n1 * n2)
+print('The result of the multiplication is: %f' % (n1 * n2))
 if op == 1:
     res = n1 - n2
 else:
