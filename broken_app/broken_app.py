@@ -21,7 +21,7 @@ except NameError:
 print('Please input your extra operation')
 print('1: Subtraction')
 print('2: Addition')
-op = input('?')
+op = int(input('?'))
 
 print('The result of the multiplication is: %f' % (n1 * n2))
 if op == 1:
