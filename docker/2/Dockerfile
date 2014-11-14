@@ -86,6 +86,7 @@ RUN root/miniconda/bin/pip install seaborn
 RUN root/miniconda/bin/pip install pyvcf
 RUN root/miniconda/bin/pip install dendropy
 RUN root/miniconda/bin/pip install simupop
+RUN root/miniconda/bin/pip install pexpect
 #RUN root/miniconda/bin/pip install
 
 EXPOSE 9875
