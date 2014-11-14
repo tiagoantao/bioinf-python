@@ -85,7 +85,7 @@ RUN root/miniconda/bin/pip install pygraphviz
 RUN root/miniconda/bin/pip install seaborn
 RUN root/miniconda/bin/pip install pyvcf
 RUN root/miniconda/bin/pip install dendropy
-RUN root/miniconda/bin/pip install simupop
+RUN root/miniconda/bin/pip install -c https://conda.binstar.org/simupop simuPOP
 RUN root/miniconda/bin/pip install pexpect
 #RUN root/miniconda/bin/pip install
 
