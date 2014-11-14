@@ -79,13 +79,13 @@ RUN root/miniconda/bin/conda install --yes statsmodels
 RUN root/miniconda/bin/conda install --yes pysam
 RUN root/miniconda/bin/conda install --yes conda-build
 RUN root/miniconda/bin/conda install --yes pip
+RUN root/miniconda/bin/conda install --yes -c https://conda.binstar.org/simupop simuPOP
 
 RUN /root/miniconda/bin/pip install rpy2
 RUN root/miniconda/bin/pip install pygraphviz
 RUN root/miniconda/bin/pip install seaborn
 RUN root/miniconda/bin/pip install pyvcf
 RUN root/miniconda/bin/pip install dendropy
-RUN root/miniconda/bin/pip install -c https://conda.binstar.org/simupop simuPOP
 RUN root/miniconda/bin/pip install pexpect
 #RUN root/miniconda/bin/pip install
 
