@@ -66,9 +66,9 @@ RUN rm -rf genepop
 #RUN cp fsc_linux64/fsc251 /usr/bin
 #RUN rm -rf fsc_*
 
-RUN wget http://repo.continuum.io/miniconda/Miniconda-3.7.0-Linux-x86_64.sh
+RUN wget http://repo.continuum.io/miniconda/Miniconda-3.7.3-Linux-x86_64.sh
 #Presumes aceptance of the license
-RUN bash Miniconda-3.7.0-Linux-x86_64.sh -b
+RUN bash Miniconda-3.7.3-Linux-x86_64.sh -b
 RUN root/miniconda/bin/conda install --yes biopython=1.64
 RUN root/miniconda/bin/conda install --yes scipy 
 RUN root/miniconda/bin/conda install --yes matplotlib
