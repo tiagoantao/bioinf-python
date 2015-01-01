@@ -10,7 +10,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 
 RUN apt-get install -y git wget build-essential unzip
-#RUN apt-get install -y gcc g++ make
+#RUN apt-get install -y gcc g++ make bzip2
 #RUN apt-get install -y clustalw fasttree t-coffee
 #RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 #RUN apt-get install -y samtools phyml wise raxml language-pack-en
