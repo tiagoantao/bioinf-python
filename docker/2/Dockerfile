@@ -32,7 +32,7 @@ RUN apt-get install -y samtools mafft muscle raxml
 #RUN echo "export LANG=en_US.UTF-8" >> entrypoint.sh
 
 #R
-RUN apt-get install -y r-bioc-biobase r-cran-ggplot2 r-cran-gridextra
+RUN apt-get install -y r-bioc-biobase
 
 RUN apt-get install -y graphviz libgraphviz-dev pkg-config  # phylo/biopython
 RUN apt-get install -y swig  # simupop
@@ -93,6 +93,9 @@ RUN root/miniconda/bin/pip install gffutils
 #RUN root/miniconda/bin/pip install
 
 RUN echo "install.packages('RMySQL', repos='http://cran.us.r-project.org')" > R.inst
+RUN echo "install.packages('ggplot2', repos='http://cran.us.r-project.org')"
+RUN echo "install.packages('gridExtra', repos='http://cran.us.r-project.org')"
+>> R.inst
 RUN R --no-save <  R.inst
 
 EXPOSE 9875
