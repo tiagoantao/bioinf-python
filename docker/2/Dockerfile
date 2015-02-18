@@ -77,7 +77,9 @@ RUN root/miniconda/bin/conda install --yes ipython-notebook
 RUN root/miniconda/bin/conda install --yes binstar
 RUN root/miniconda/bin/conda install --yes scikit-learn
 RUN root/miniconda/bin/conda install --yes statsmodels
-RUN root/miniconda/bin/conda install --yes pysam
+#RUN root/miniconda/bin/conda install --yes pysam
+RUN root/miniconda/bin/conda install -c https://conda.binstar.org/bcbio --yes pysam
+RUN root/miniconda/bin/conda install -c https://conda.binstar.org/bcbio --yes gffutils
 RUN root/miniconda/bin/conda install --yes conda-build
 RUN root/miniconda/bin/conda install --yes pip
 RUN root/miniconda/bin/conda install --yes requests
