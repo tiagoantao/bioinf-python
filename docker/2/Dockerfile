@@ -32,7 +32,7 @@ RUN apt-get install -y samtools mafft muscle raxml
 #RUN echo "export LANG=en_US.UTF-8" >> entrypoint.sh
 
 #R
-RUN apt-get install -y r-bioc-biobase r-cran-ggplot2
+RUN apt-get install -y r-bioc-biobase r-cran-ggplot2 r-cran-gridextra
 
 RUN apt-get install -y graphviz libgraphviz-dev pkg-config  # phylo/biopython
 RUN apt-get install -y swig  # simupop
