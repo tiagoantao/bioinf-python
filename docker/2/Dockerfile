@@ -94,9 +94,8 @@ RUN root/miniconda/bin/pip install pexpect
 #RUN root/miniconda/bin/pip install
 
 #RUN echo "install.packages('RMySQL', repos='http://cran.us.r-project.org')" > R.inst
-RUN echo "install.packages('ggplot2', repos='http://cran.us.r-project.org')"
-RUN echo "install.packages('gridExtra', repos='http://cran.us.r-project.org')"
->> R.inst
+RUN echo "install.packages('ggplot2', repos='http://cran.us.r-project.org')" >> R.inst
+RUN echo "install.packages('gridExtra', repos='http://cran.us.r-project.org')" >> R.inst
 RUN R --no-save <  R.inst
 
 EXPOSE 9875
