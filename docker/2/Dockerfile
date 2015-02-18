@@ -92,7 +92,7 @@ RUN root/miniconda/bin/pip install gffutils
 #RUN root/miniconda/bin/pip install
 
 echo "install.packages('RMySQL', repos='http://cran.us.r-project.org')" > R.inst
-R --no-save <  R.inst
+RUN R --no-save <  R.inst
 
 EXPOSE 9875
 
