@@ -15,7 +15,7 @@ RUN apt-get install -y git wget build-essential unzip
 #RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 #RUN apt-get install -y samtools phyml wise raxml language-pack-en
 #RUN apt-get install -y embassy-phylip paml probcons
-RUN apt-get install -y samtools mafft muscle raxml
+RUN apt-get install -y samtools mafft muscle raxml tabix
 
 ##For BioSQL
 #RUN apt-get install -y postgresql
