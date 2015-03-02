@@ -1,6 +1,6 @@
 import pymol
 from pymol import cmd
-pymol.pymol_argv = [ 'pymol', '-qc'] #  Quiet / no GUI
+#pymol.pymol_argv = [ 'pymol', '-qc'] #  Quiet / no GUI
 pymol.finish_launching()
 
 cmd.fetch('1TUP', async=False)
@@ -21,11 +21,10 @@ cmd.scene('S1', action='store', view=0, frame=0, animate=-1)
 
 cmd.hide('cartoon', 'chain A+B+C')
 cmd.show('mesh', 'chain A')
-cmd.show('sticks', 'chain A+B+c')
+cmd.show('sticks', 'chain A+B+C')
 cmd.scene('S2', action='store', view=0, frame=0, animate=-1)
 
-cmd.set('ray_trace_frames', 0)
-
+cmd.set('ray_trace_mode', 0)
 cmd.mset(1, 500)
 
 
@@ -62,11 +61,11 @@ cmd.scene('S1')
 cmd.mview()
 cmd.frame(350)
 cmd.scene('S1')
-cmd.set_view ((0.395763457,   -0.173441306,    0.901825786,
-               0.915456235,    0.152441502,   -0.372427106,
-              -0.072881661,    0.972972929,    0.219108686,
-               0.000070953,    0.000013039,  -37.689743042,
-              57.748500824,   14.325904846,   77.241867065,
+cmd.set_view((0.395763457,   -0.173441306,    0.901825786,
+              0.915456235,    0.152441502,   -0.372427106,
+             -0.072881661,    0.972972929,    0.219108686,
+              0.000070953,    0.000013039,  -37.689743042,
+             57.748500824,   14.325904846,   77.241867065,
              -15.123448372,   90.511535645,  -20.000000000))
 
 cmd.mview()
