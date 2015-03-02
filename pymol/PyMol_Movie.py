@@ -4,9 +4,9 @@ pymol.pymol_argv = [ 'pymol', '-qc'] #  Quiet / no GUI
 pymol.finish_launching()
 
 cmd.fetch('1TUP', async=False)
+
 cmd.disable('all')
 cmd.enable('1TUP')
-cmd.bg_color('gray')
 cmd.hide('all')
 cmd.show('sphere', 'name zn')
 
