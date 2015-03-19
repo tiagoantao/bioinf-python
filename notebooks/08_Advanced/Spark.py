@@ -14,7 +14,6 @@ first = freqs.first()
 print(first)
 flat = freqs.flatMapValues(lambda my_freqs: my_freqs)
 def bla(e, acc):
-    print(99999, e, acc)
     return (acc[0] + e[1],  acc[1] + 1)
 my_sum, cnt = flat.fold((0.0, 0), bla)
 #my_sum, cnt = flat.fold((0.0, 0), lambda e, acc: (acc[0] + e[1], acc[1] + 1))
