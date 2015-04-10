@@ -36,6 +36,7 @@ RUN apt-get install -y r-bioc-biobase
 
 RUN apt-get install -y graphviz libgraphviz-dev pkg-config  # phylo/biopython
 RUN apt-get install -y swig  # simupop
+RUN apt-get install -y libx11-dev
 
 RUN apt-get clean
 
@@ -63,15 +64,15 @@ RUN rm -rf genepop
 ##fastsimcoal
 #RUN wget http://cmpg.unibe.ch/software/fastsimcoal2/downloads/fsc_linux64.zip
 #RUN unzip fsc_linux64.zip
-#RUN chmod a+x fsc_linux64/fsc251
-#RUN cp fsc_linux64/fsc251 /usr/bin
+#RUN chmod a+x fsc_linux64/fsc252
+#RUN cp fsc_linux64/fsc252 /usr/bin
 #RUN rm -rf fsc_*
 
 RUN wget http://repo.continuum.io/miniconda/Miniconda-3.7.3-Linux-x86_64.sh
 #Presumes aceptance of the license
 RUN bash Miniconda-3.7.3-Linux-x86_64.sh -b
 RUN root/miniconda/bin/conda install --yes biopython=1.64
-RUN root/miniconda/bin/conda install --yes scipy 
+5UN root/miniconda/bin/conda install --yes scipy 
 RUN root/miniconda/bin/conda install --yes matplotlib
 RUN root/miniconda/bin/conda install --yes ipython-notebook
 RUN root/miniconda/bin/conda install --yes binstar
