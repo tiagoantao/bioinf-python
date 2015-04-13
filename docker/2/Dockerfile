@@ -86,7 +86,7 @@ RUN root/miniconda/bin/conda install --yes pip
 RUN root/miniconda/bin/conda install --yes requests
 RUN root/miniconda/bin/conda install --yes -c https://conda.binstar.org/simupop simuPOP
 
-RUN /root/miniconda/bin/pip install rpy2
+RUN root/miniconda/bin/pip install rpy2
 RUN root/miniconda/bin/pip install pygraphviz
 RUN root/miniconda/bin/pip install seaborn
 RUN root/miniconda/bin/pip install pyvcf
@@ -100,9 +100,13 @@ RUN echo "install.packages('ggplot2', repos='http://cran.us.r-project.org')" >> 
 RUN echo "install.packages('gridExtra', repos='http://cran.us.r-project.org')" >> R.inst
 RUN R --no-save <  R.inst
 
+
 EXPOSE 9875
 
 RUN git clone https://github.com/tiagoantao/bioinf-python.git
+RUN wget https://github.com/tiagoantao/pygenomics/archive/book.zip
+RUN unzip book.zip
+RUN mv pygenomics-book/genomics /bioinf-python/notebooks
 WORKDIR /bioinf-python/notebooks
 
 CMD /root/miniconda/bin/ipython notebook --ip=0.0.0.0 --no-browser --port=9875
