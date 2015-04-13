@@ -76,7 +76,7 @@ RUN mv plink /usr/bin
 #trimal
 RUN wget http://trimal.cgenomics.org/_media/trimal.v1.2rev59.tar.gz
 RUN tar zxf trimal.v1.2rev59.tar.gz
-WORKDIR /trimal/source
+WORKDIR /trimAl/source
 RUN make
 RUN cp trimal /usr/bin
 WORKDIR /
