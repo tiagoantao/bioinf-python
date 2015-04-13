@@ -61,12 +61,17 @@ RUN cp Genepop /usr/bin
 WORKDIR /
 RUN rm -rf genepop
 
-##fastsimcoal
+#fastsimcoal
 RUN wget http://cmpg.unibe.ch/software/fastsimcoal2/downloads/fsc_linux64.zip
 RUN unzip fsc_linux64.zip
 RUN chmod a+x fsc_linux64/fsc252
 RUN cp fsc_linux64/fsc252 /usr/bin
 RUN rm -rf fsc_*
+
+#plink
+RUN wget https://www.cog-genomics.org/static/bin/plink150409/plink_linux_x86_64.zip
+RUN unzip plink_linux_x86_64.zip
+RUN mv plink /usr/bin
 
 RUN wget http://repo.continuum.io/miniconda/Miniconda-3.7.3-Linux-x86_64.sh
 #Presumes aceptance of the license
