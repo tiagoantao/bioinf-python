@@ -78,6 +78,7 @@ RUN wget http://repo.continuum.io/miniconda/Miniconda-3.7.3-Linux-x86_64.sh
 RUN bash Miniconda-3.7.3-Linux-x86_64.sh -b
 RUN root/miniconda/bin/conda install --yes biopython=1.65
 RUN root/miniconda/bin/conda install --yes scipy 
+RUN root/miniconda/bin/conda install --yes cython
 RUN root/miniconda/bin/conda install --yes matplotlib
 RUN root/miniconda/bin/conda install --yes ipython-notebook
 RUN root/miniconda/bin/conda install --yes binstar
