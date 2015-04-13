@@ -115,7 +115,7 @@ RUN echo "install.packages('gridExtra', repos='http://cran.us.r-project.org')" >
 RUN R --no-save <  R.inst
 
 #smartpca
-RUN wget ftp://ftp.broadinstitute.org/EIGENSOFT/EIG6.0.1.tar.gz
+RUN wget ftp://pricelab:pricelab@ftp.broadinstitute.org/EIGENSOFT/EIG6.0.1.tar.gz
 RUN tar zxf EIG6.0.1.tar.gz
 RUN cp EIG6.0.1/bin/smartpca /usr/bin
 
