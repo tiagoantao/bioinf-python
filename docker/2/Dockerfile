@@ -73,6 +73,14 @@ RUN wget https://www.cog-genomics.org/static/bin/plink150409/plink_linux_x86_64.
 RUN unzip plink_linux_x86_64.zip
 RUN mv plink /usr/bin
 
+#trimal
+RUN WGET http://trimal.cgenomics.org/_media/trimal.v1.2rev59.tar.gz
+RUN tar zxf trimal.v1.2rev59.tar.gz
+WORKDIR /trimal/source
+RUN make
+RUN cp trimal /usr/bin
+WORKDIR /
+
 RUN wget http://repo.continuum.io/miniconda/Miniconda-3.7.3-Linux-x86_64.sh
 #Presumes aceptance of the license
 RUN bash Miniconda-3.7.3-Linux-x86_64.sh -b
