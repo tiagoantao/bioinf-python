@@ -107,12 +107,16 @@ RUN root/miniconda/bin/pip install pyvcf
 RUN root/miniconda/bin/pip install dendropy
 RUN root/miniconda/bin/pip install pexpect
 RUN root/miniconda/bin/pip install reportlab
-#RUN root/miniconda/bin/pip install
+RUN root/miniconda/bin/pip install networkx
 
 #RUN echo "install.packages('RMySQL', repos='http://cran.us.r-project.org')" > R.inst
 RUN echo "install.packages('ggplot2', repos='http://cran.us.r-project.org')" >> R.inst
 RUN echo "install.packages('gridExtra', repos='http://cran.us.r-project.org')" >> R.inst
 RUN R --no-save <  R.inst
+
+#smartpca
+RUN wget ftp://pricelab:pricelab@ftp.broadinstitute.org/EIGENSOFT/EIG6.0.1.tar.gz
+RUN cp EIG6.0.1/bin/smartpca /usr/bin
 
 
 EXPOSE 9875
