@@ -69,7 +69,7 @@ RUN cp fsc_linux64/fsc252 /usr/bin
 RUN rm -rf fsc_*
 
 #plink
-RUN wget https://www.cog-genomics.org/static/bin/plink150409/plink_linux_x86_64.zip
+RUN wget https://www.cog-genomics.org/static/bin/plink150418/plink_linux_x86_64.zip
 RUN unzip plink_linux_x86_64.zip
 RUN mv plink /usr/bin
 
