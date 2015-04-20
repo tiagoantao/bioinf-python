@@ -115,9 +115,10 @@ RUN echo "install.packages('gridExtra', repos='http://cran.us.r-project.org')" >
 RUN R --no-save <  R.inst
 
 #smartpca
-RUN wget ftp://pricelab:pricelab@ftp.broadinstitute.org/EIGENSOFT/EIG6.0.1.tar.gz
-RUN tar zxf EIG6.0.1.tar.gz
-RUN cp EIG6.0.1/bin/smartpca /usr/bin
+RUN wget https://github.com/DReichLab/EIG/archive/master.zip
+RUN unzip master.zip
+RUN rm master.zip
+RUN cp master/bin/smartpca /usr/bin
 
 
 EXPOSE 9875
@@ -125,6 +126,7 @@ EXPOSE 9875
 RUN git clone https://github.com/tiagoantao/bioinf-python.git
 RUN wget https://github.com/tiagoantao/pygenomics/archive/book.zip
 RUN unzip book.zip
+RUN rm book.zip
 ENV PYTHONPATH /pygenomics-book
 WORKDIR /bioinf-python/notebooks
 
