@@ -3,32 +3,11 @@ MAINTAINER Tiago Antao <tiagoantao@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-##We need this for phylip
-#RUN echo 'deb http://archive.ubuntu.com/ubuntu utopic multiverse' >> /etc/apt/sources.list
-
 RUN apt-get update
 RUN apt-get upgrade -y
 
 RUN apt-get install -y git wget build-essential unzip
-#RUN apt-get install -y clustalw fasttree t-coffee
-#RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
-#RUN apt-get install -y samtools phyml wise raxml language-pack-en
-#RUN apt-get install -y embassy-phylip paml probcons
 RUN apt-get install -y samtools mafft muscle raxml tabix
-
-##For BioSQL
-#RUN apt-get install -y postgresql
-
-#for Phylo_CDAO
-#RUN pip3 install rdflib
-
-
-##Database servers
-#RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.3/main/pg_hba.conf
-#RUN echo "service postgresql start" > .bashrc
-#RUN echo "export LANG=en_US.UTF-8" >> .bashrc
-#RUN echo "service postgresql start" > entrypoint.sh
-#RUN echo "export LANG=en_US.UTF-8" >> entrypoint.sh
 
 #R
 RUN apt-get install -y r-bioc-biobase
@@ -39,17 +18,6 @@ RUN apt-get install -y libx11-dev
 RUN apt-get install -y libgsl0ldbl
 
 RUN apt-get clean
-
-#Manual software
-
-##reportlab fonts
-#RUN wget http://www.reportlab.com/ftp/fonts/pfbfer.zip
-#WORKDIR cd /usr/lib/python3.4/dist-packages/reportlab
-#RUN  mkdir fonts
-#WORKDIR cd /usr/lib/python3.4/dist-packages/reportlab/fonts
-#RUN unzip /pfbfer.zip
-#WORKDIR /
-#RUN rm pfbfer.zip
 
 #genepop
 RUN mkdir genepop
@@ -114,9 +82,11 @@ RUN echo "install.packages('gridExtra', repos='http://cran.us.r-project.org')" >
 RUN R --no-save <  R.inst
 
 #smartpca
-RUN wget ftp://pricelab:pricelab@ftp.broadinstitute.org/EIGENSOFT/EIG6.0.1.tar.gz
-RUN tar zxf EIG6.0.1.tar.gz
-RUN cp EIG6.0.1/bin/smartpca /usr/bin
+RUN wget https://github.com/DReichLab/EIG/archive/master.zip
+RUN unzip master.zip
+RUN rm master.zip
+RUN cp EIG-master/bin/smartpca /usr/bin
+
 
 
 EXPOSE 9875
