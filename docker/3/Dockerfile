@@ -92,6 +92,7 @@ RUN cp EIG-master/bin/smartpca /usr/bin
 
 EXPOSE 9875
 
+RUN git clone https://github.com/tiagoantao/bioinf-python.git
 WORKDIR /bioinf-python/notebooks
 
 CMD /root/miniconda/bin/ipython notebook --ip=0.0.0.0 --no-browser --port=9875
