@@ -91,10 +91,7 @@ RUN cp EIG-master/bin/smartpca /usr/bin
 
 EXPOSE 9875
 
-RUN git clone https://github.com/tiagoantao/bioinf-python.git
-RUN wget https://github.com/tiagoantao/pygenomics/archive/book.zip
-RUN unzip book.zip
-ENV PYTHONPATH /pygenomics-book
+RUN pip install pygenomics
 WORKDIR /bioinf-python/notebooks
 
 CMD /root/miniconda/bin/ipython notebook --ip=0.0.0.0 --no-browser --port=9875
