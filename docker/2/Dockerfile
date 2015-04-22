@@ -76,6 +76,7 @@ RUN root/miniconda/bin/pip install dendropy
 RUN root/miniconda/bin/pip install pexpect
 RUN root/miniconda/bin/pip install reportlab
 RUN root/miniconda/bin/pip install networkx
+RUN root/miniconda/bin/pip install pygenomics
 
 #RUN echo "install.packages('RMySQL', repos='http://cran.us.r-project.org')" > R.inst
 RUN echo "install.packages('ggplot2', repos='http://cran.us.r-project.org')" >> R.inst
@@ -91,7 +92,6 @@ RUN cp EIG-master/bin/smartpca /usr/bin
 
 EXPOSE 9875
 
-RUN pip install pygenomics
 
 WORKDIR /bioinf-python/notebooks
 
