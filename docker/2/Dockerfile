@@ -37,8 +37,8 @@ RUN cp fsc_linux64/fsc252 /usr/bin
 RUN rm -rf fsc_*
 
 #plink
-RUN wget https://www.cog-genomics.org/static/bin/plink150418/plink_linux_x86_64.zip
-RUN unzip plink_linux_x86_64.zip
+RUN wget http://pngu.mgh.harvard.edu/~purcell/plink/dist/plink-latest.zip
+RUN unzip plink_latest.zip
 RUN mv plink /usr/bin
 
 #trimal
