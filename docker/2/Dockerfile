@@ -37,8 +37,8 @@ RUN cp fsc_linux64/fsc252 /usr/bin
 RUN rm -rf fsc_*
 
 #plink
-RUN wget http://pngu.mgh.harvard.edu/~purcell/plink/dist/plink-latest.zip
-RUN unzip plink_latest.zip
+RUN wget http://pngu.mgh.harvard.edu/~purcell/static/bin/plink140618/plink_linux_x86_64.zip
+RUN unzip plink_linux_x86_64.zip
 RUN mv plink /usr/bin
 
 #trimal
