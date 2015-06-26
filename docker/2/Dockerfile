@@ -72,7 +72,6 @@ RUN root/miniconda/bin/pip install rpy2
 RUN root/miniconda/bin/pip install pygraphviz
 RUN root/miniconda/bin/pip install seaborn
 RUN root/miniconda/bin/pip install pyvcf
-RUN root/miniconda/bin/pip install dendropy
 RUN root/miniconda/bin/pip install pexpect
 RUN root/miniconda/bin/pip install reportlab
 RUN root/miniconda/bin/pip install networkx
@@ -88,6 +87,14 @@ RUN wget https://github.com/DReichLab/EIG/archive/master.zip
 RUN unzip master.zip
 RUN rm master.zip
 RUN cp EIG-master/bin/smartpca /usr/bin
+
+
+#dendropy
+RUN wget https://github.com/jeetsukumaran/DendroPy/archive/v3.12.1.tar.gz
+RUN tar zxf v3.12.1.tar.gz 
+WORKDIR DendroPy-3.12.1
+RUN python setup.py install
+WORKDIR /
 
 
 EXPOSE 9875
