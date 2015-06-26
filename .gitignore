@@ -56,3 +56,25 @@ target/
 
 #IPython notebooks
 .ipynb_checkpoints
+
+
+#book
+*.frq
+MAF-*
+*.bim
+*.bed
+*.fam
+*.map
+*.ped
+*.pops
+p53_*png
+*.fasta
+*.ent
+*.pdb
+*.gz
+*.par
+hapmap1*
+*.db
+*.bz2
+*.bam
+*.tbi
