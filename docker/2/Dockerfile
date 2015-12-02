@@ -1,4 +1,4 @@
-FROM ubuntu:utopic
+FROM ubuntu:wily
 MAINTAINER Tiago Antao <tiagoantao@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
