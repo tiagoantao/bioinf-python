@@ -32,8 +32,8 @@ RUN rm -rf genepop
 #fastsimcoal
 RUN wget http://cmpg.unibe.ch/software/fastsimcoal2/downloads/fsc_linux64.zip
 RUN unzip fsc_linux64.zip
-RUN chmod a+x fsc_linux64/fsc25211
-RUN cp fsc_linux64/fsc25211 /usr/bin/fsc252
+RUN chmod a+x fsc_linux64/fsc25221
+RUN cp fsc_linux64/fsc25221 /usr/bin/fsc252
 RUN rm -rf fsc_*
 
 #plink
