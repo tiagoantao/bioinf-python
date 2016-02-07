@@ -66,7 +66,7 @@ RUN root/miniconda/bin/conda install -c https://conda.binstar.org/bcbio --yes gf
 RUN root/miniconda/bin/conda install --yes conda-build
 RUN root/miniconda/bin/conda install --yes pip
 RUN root/miniconda/bin/conda install --yes requests
-RUN root/miniconda/bin/conda install --yes -c https://conda.binstar.org/simupop simuPOP
+RUN root/miniconda/bin/conda install --yes -c bpeng simuPOP
 
 RUN root/miniconda/bin/pip install rpy2
 RUN root/miniconda/bin/pip install pygraphviz
