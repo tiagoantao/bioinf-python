@@ -24,6 +24,7 @@ RUN mkdir genepop
 WORKDIR /genepop
 RUN wget http://kimura.univ-montp2.fr/~rousset/sources.tar.gz
 RUN tar zxf sources.tar.gz
+RUN cp Cpp/* .
 RUN g++ -DNO_MODULES -o Genepop GenepopS.cpp -O3
 RUN cp Genepop /usr/bin
 WORKDIR /
