@@ -16,6 +16,7 @@ RUN apt-get install -y graphviz libgraphviz-dev pkg-config  # phylo/biopython
 RUN apt-get install -y swig  # simupop
 RUN apt-get install -y libx11-dev
 RUN apt-get install -y libgsl0ldbl
+RUN apt-get install -y libgsl0-dev libopenblas-dev liblapacke-dev
 
 RUN apt-get clean
 
@@ -87,7 +88,6 @@ RUN R --no-save <  R.inst
 RUN wget https://github.com/DReichLab/EIG/archive/v6.1.2.tar.gz
 RUN tar zxf v6.1.2.tar.gz
 RUN rm v6.1.2.tar.gz
-RUN apt-get install -y libgsl0-dev libopenblas-dev liblapacke-dev
 WORKDIR EIG-6.1.2/src
 RUN sed -i.bak 's/-lrt/-lrt -llapacke -lm -lpthread/' Makefile
 RUN make
