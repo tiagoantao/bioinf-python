@@ -84,11 +84,14 @@ RUN echo "install.packages('gridExtra', repos='http://cran.us.r-project.org')" >
 RUN R --no-save <  R.inst
 
 #smartpca
-RUN wget https://github.com/DReichLab/EIG/archive/master.zip
-RUN unzip master.zip
-RUN rm master.zip
-RUN cp EIG-master/bin/smartpca /usr/bin
-
+RUN wget https://github.com/DReichLab/EIG/archive/v6.1.2.tar.gz
+RUN tar zxf v6.1.2.tar.gz
+RUN rm v6.1.2.tar.gz
+RUN apt-get install -y libgsl0-dev libopenblas-dev liblapacke-dev
+WORKDIR EIG-6.1.2/src
+RUN sed -i.bak 's/-lrt/-lrt -llapacke -lm -lpthread/' Makefile
+RUN make
+RUN cp eigensrc/smartpca /usr/bin
 
 
 EXPOSE 9875
