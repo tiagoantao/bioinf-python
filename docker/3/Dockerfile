@@ -58,7 +58,7 @@ RUN root/miniconda/bin/conda install --yes scipy
 RUN root/miniconda/bin/conda install --yes cython numba
 RUN root/miniconda/bin/conda install --yes matplotlib
 RUN root/miniconda/bin/conda install --yes ipython-notebook
-RUN root/miniconda/bin/conda install --yes binstar
+RUN root/miniconda/bin/conda install --yes anaconda-client
 RUN root/miniconda/bin/conda install --yes scikit-learn
 RUN root/miniconda/bin/conda install --yes statsmodels
 #RUN root/miniconda/bin/conda install --yes pysam
