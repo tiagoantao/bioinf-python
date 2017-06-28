@@ -10,3 +10,4 @@ This is the github repository with code samples for
 The suggested starting point is the Welcome_ notebook.
 
 .. _Welcome: notebooks/Welcome.ipynb
+.. _Bioinformatics with Python Cookbook: https://www.packtpub.com/application-development/bioinformatics-python-cookbook
