@@ -12,6 +12,6 @@ If you are seeing this on GitHub, please go to main  `GitLab repository`_
 
 The suggested starting point is the Welcome_ notebook.
 
-.. _Welcome: notebooks/Welcome.ipynb
+.. _Welcome: http://nbviewer.jupyter.org/urls/gitlab.com/tiagoantao/bioinf-python/raw/master/notebooks/Welcome.ipynb
 .. _Bioinformatics with Python Cookbook: https://www.packtpub.com/application-development/bioinformatics-python-cookbook
 .. _GitLab repository: https://gitlab.com/tiagoantao/bioinf-python
